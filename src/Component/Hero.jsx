@@ -2,13 +2,26 @@ import React from 'react'
 
 const Hero = () => {
     return (
-        <div className='mt-20'>
-            <h1>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae maiores laboriosam autem exercitationem inventore ratione quia adipisci neque laudantium necessitatibus. Placeat iusto eveniet assumenda illo ipsum nihil perferendis, ratione vel?
-                Dolor omnis illo, ipsam sapiente architecto id explicabo expedita placeat? In eum earum iusto saepe placeat maiores non cupiditate exercitationem odit est ratione ducimus, delectus amet dolorum praesentium corporis temporibus.
-                Quis quaerat ab in repellat temporibus cumque quos ipsa quia. Ratione incidunt veniam impedit veritatis corrupti, nesciunt et, voluptatem sunt pariatur magnam voluptates officia mollitia maxime itaque tenetur deleniti asperiores!
-                Adipisci debitis quod voluptatibus tempore mollitia corrupti placeat explicabo ullam natus! Ipsum hic unde, vitae, obcaecati iste autem aspernatur nobis aut fuga animi minima fugiat sit veniam quidem, modi accusantium?
+        <div className='px-4 sm:px-6 md:px-8 lg:px-24 xl:px-48 mt-20 lg:mt-30 flex flex-col items-center '>
+
+            <h1 className='text-lg lg:text-2xl'>
+                New collection 2026
             </h1>
+            <p className='text-6xl text-center max-w-sm hidden lg:block py-5'>
+                Take a bold step into the future
+            </p>
+
+            <p className='text-center pb-10 lg:text-lg lg:max-w-md'>
+                Input your location lets recommend perfect foot ware according to your weather condition
+
+            </p>
+
+            <form action="" className='bg-gray-300 px-2 py-1 lg:py-2 rounded-sm lg:w-lg flex justify-between '>
+
+                <input type="text" placeholder='location' className='outline-none' />
+                <button className='bg-blue-500 text-white py-1 rounded-sm px-2'>search</button>
+
+            </form>
         </div>
     )
 }

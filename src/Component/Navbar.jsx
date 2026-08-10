@@ -15,7 +15,7 @@ const Navbar = () => {
     const search = () => {
     }
     return (
-        <nav className={`px-4 sm:px-6 md:px-8 lg:px-24 xl:px-48 sm:flex flex-col gap-6  fixed top-0 left-0 right-0 py-2  ${showSearch && "backdrop-blur-sm z-40 inset-0"}`}>
+        <nav className={`px-4 sm:px-6 md:px-8 lg:px-24 xl:px-48 bg-white sm:flex flex-col gap-6  fixed top-0 left-0 right-0 py-2  ${showSearch && "backdrop-blur-sm z-40 inset-0"}`}>
 
             <div className=' mx-auto  gap-20 text-[13px] hidden md:flex '>
                 <a href=""> <img src={assets.baby_feet} alt="" className='cursor-pointer w-5 h-5' /></a>
