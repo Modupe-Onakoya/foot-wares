@@ -4,14 +4,14 @@ const Hero = () => {
     return (
         <div className='px-4 sm:px-6 md:px-8 lg:px-24 xl:px-48 mt-20 lg:mt-30 flex flex-col items-center '>
 
-            <h1 className='text-lg lg:text-2xl'>
+            <h1 className='text-lg lg:text-2xl max-md:py-2'>
                 New collection 2026
             </h1>
-            <p className='text-6xl text-center max-w-sm hidden lg:block py-5'>
+            <p className='text-6xl text-center max-w-sm hidden sm:block py-5'>
                 Take a bold step into the future
             </p>
 
-            <p className='text-center pb-10 lg:text-lg lg:max-w-md'>
+            <p className='text-center pb-5 sm:pb-10 lg:text-lg max-w-md'>
                 Input your location lets recommend perfect foot ware according to your weather condition
 
             </p>
