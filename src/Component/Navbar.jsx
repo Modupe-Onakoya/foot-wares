@@ -18,11 +18,14 @@ const Navbar = () => {
         <nav className={`px-4 sm:px-6 md:px-8 lg:px-24 xl:px-48 bg-white sm:flex flex-col gap-6  fixed top-0 left-0 right-0 py-2  ${showSearch && "backdrop-blur-sm z-40 inset-0"}`}>
 
             <div className=' mx-auto  gap-20 text-[13px] hidden md:flex '>
-                <a href=""> <img src={assets.baby_feet} alt="" className='cursor-pointer w-5 h-5' /></a>
-                <a href="">Sneakers</a>
-                <a href="">Sandals</a>
-                <a href="">Boots</a>
-                <p className='cursor-pointer'>Loafers</p>
+                <div className='flex gap-1 items-center '>
+                    <span className='text-xl font-bold'>SNEAK lOVERS</span>
+                    <a href=""> <img src={assets.baby_feet} alt="" className='cursor-pointer w-5 h-5' /></a>
+
+                </div>
+                <a href="">Nike</a>
+                <a href="">Puma</a>
+                <a href="">Addidas</a>
                 <img src={assets.search} alt="" className='cursor-pointer w-3 h-3' onClick={() => setShowSearch(!showSearch)} />
             </div >
             {
@@ -56,9 +59,9 @@ const Navbar = () => {
 
                 <div className={`${openMenu ? "translate-y-0 delay-200" : "-translate-y-full"} bg-white h-screen flex justify-between fixed top-0 left-0 right-0 z-10  px-4 py-2 transition-transform ease-in-out duration-500   `}>
                     <div className='flex flex-col h-full text-3xl py-20 gap-8 font-bold px-10'>
-                        <a href="">Sneakers</a>
-                        <a href="">Sandals</a>
-                        <a href="">Boots</a>
+                        <a href="">Nike</a>
+                        <a href="">Puma</a>
+                        <a href="">Addidas</a>
                     </div>
                     <button className='space-y-[6px] flex flex-col ' onClick={() => setOpenMenu(!openMenu)} >
                         <span className={`w-[15px] bg-black h-[2px] transition-all border ${openMenu && 'rotate-45 translate-y-[8px] '}`} />
