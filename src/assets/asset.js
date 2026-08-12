@@ -1,15 +1,27 @@
 import baby_feet from "./baby-feet.png"
 import search from "./search-interface-symbol.png"
 import nike_logo from "./nike-logo.jpg"
-import pumaa_logo from "./pumaa.jpg"
-import nike_red_shoe from "./nike-red-shoe.jpg"
-import addidas_black_shoe from "./addidas-black-shoe.jpg"
-
-
-
-
+import adidas_shoe1 from "./adidas-shoe1.jpg"
+import adidas_shoe2 from "./adidas-shoe2.jpg"
+import adidas_shoe3 from "./adidas-shoe3.jpg"
+import nike_shoe1 from "./nike-shoe1.jpg"
+import nike_shoe2 from "./nike-shoe2.jpg"
+import nike_shoe3 from "./nike-shoe3.jpg"
+import puma_shoe1 from "./puma-shoe1.jpg"
+import puma_shoe2 from "./puma-shoe2.jpg"
+import puma_shoe3 from "./puma-shoe3.jpg"
 
 
 export const assets = {
-    baby_feet, search, nike_logo, pumaa_logo, nike_red_shoe, addidas_black_shoe
+    baby_feet, search, nike_logo, adidas_shoe1, adidas_shoe2, adidas_shoe3, nike_shoe1, nike_shoe2, nike_shoe3, puma_shoe1, puma_shoe2, puma_shoe3
 }
+
+export const nikeHomePage = [
+    nike_shoe1, nike_shoe2, nike_shoe3
+]
+export const adidasHomePage = [
+    adidas_shoe1, adidas_shoe2, adidas_shoe3
+]
+export const pumaHomePage = [
+    puma_shoe1, puma_shoe2, puma_shoe3
+]

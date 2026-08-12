@@ -19,8 +19,8 @@ const Navbar = () => {
 
             <div className=' mx-auto  gap-20 text-[13px] hidden md:flex '>
                 <div className='flex gap-1 items-center '>
-                    <span className='text-xl font-bold'>SNEAK lOVERS</span>
-                    <a href=""> <img src={assets.baby_feet} alt="" className='cursor-pointer w-5 h-5' /></a>
+                    <span className='text-lg font-bold'>SNEAK lOVERS</span>
+                    <a href=""> <img src={assets.baby_feet} alt="" className='cursor-pointer w-3 h-3' /></a>
 
                 </div>
                 <a href="">Nike</a>
@@ -41,7 +41,11 @@ const Navbar = () => {
             <div className='md:hidden '>
                 <div className=' flex w-full justify-between'>
 
-                    <a href=""> <img src={assets.baby_feet} alt="" className='cursor-pointer w-5 h-5' /></a>
+                    <div className='flex gap-1 items-center '>
+                        <span className='text-md font-bold'>SNEAK lOVERS</span>
+                        <a href=""> <img src={assets.baby_feet} alt="" className='cursor-pointer w-3 h-3' /></a>
+
+                    </div>
                     <div className='flex gap-5'>
 
                         <img src={assets.search} alt="" className='w-3 h-3 ' onClick={() => setOpenSearch(!openSearch)} />
