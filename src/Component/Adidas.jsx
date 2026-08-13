@@ -6,7 +6,7 @@ import HomePageDisplay from './HomePageDisplay'
 const Adidas = () => {
     return (
         <div className='px-4 sm:px-6 md:px-8 lg:px-24  mt-20 lg:mt-30'>
-            <Title title="Adidas" sub="View Adidas Products" />
+            <Title title="Adidas" sub="View Products" />
 
 
             <div className='grid sm:grid-cols-2 xl:grid-cols-3 items-center gap-2 '>
