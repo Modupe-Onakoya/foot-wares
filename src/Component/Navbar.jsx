@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { assets } from '../assets/asset'
+import { useClerk, UserButton, useUser } from '@clerk/react'
 
 const Navbar = () => {
     const [showSearch, setShowSearch] = useState(false)
@@ -8,6 +9,9 @@ const Navbar = () => {
     const [nikeHover, setNikeHover] = useState(false)
     const [pumaHover, setPumaHover] = useState(false)
     const [adidasHover, setadidasHover] = useState(false)
+    const [isLoggedIn, setIsLoggedIm] = useState(false)
+    const { user } = useUser()
+    const { openSignIn } = useClerk()
 
 
     const overIn = () => {
@@ -28,7 +32,7 @@ const Navbar = () => {
     }
     return (
         <nav className={`px-4 sm:px-6 md:px-8 lg:px-24 xl:px-48 bg-white sm:flex flex-col gap-6  fixed top-0 left-0 right-0 py-2  ${showSearch && "backdrop-blur-sm z-40 inset-0"}`}>
-            <div className="mx-auto gap-20 text-[13px] hidden md:flex">
+            <div className="mx-auto gap-20 text-[13px] hidden md:flex items-center">
 
                 <div className="flex gap-1 items-center">
                     <span className="text-lg font-bold">SNEAK LOVERS</span>
@@ -96,7 +100,20 @@ const Navbar = () => {
                     src={assets.search}
                     className="cursor-pointer w-3 h-3"
                     onClick={() => setShowSearch(!showSearch)}
+
                 />
+
+                {
+                    user
+                        ?
+                        <UserButton />
+                        :
+                        <div className='gap-2' onClick={() => openSignIn()}>
+                            <button >Sign in</button>
+
+                        </div>
+                }
+
 
             </div>
 
