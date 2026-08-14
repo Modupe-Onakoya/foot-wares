@@ -2,13 +2,15 @@ import React from 'react'
 import { assets, pumaHomePage } from '../assets/asset'
 import Title from './Title'
 import HomePageDisplay from './HomePageDisplay'
+import { motion } from "motion/react"
+
 
 const Puma = () => {
     return (
-        <div className='px-4 sm:px-6 md:px-8 lg:px-24  mt-20 lg:mt-30 bg-gray-100 py-20'>
+        <motion.div className='px-4 sm:px-6 md:px-8 lg:px-24  mt-20 lg:mt-30 bg-gray-100 py-20'>
             <Title title="Puma" sub="View Products" />
 
-            <div className='grid sm:grid-cols-2 xl:grid-cols-3 items-center gap-2 '>
+            <div className='grid sm:grid-cols-2 xl:grid-cols-3 items-center gap-4 '>
                 {
                     pumaHomePage.map((img, idx) => (
                         <HomePageDisplay image={img} index={idx} />
@@ -25,7 +27,7 @@ const Puma = () => {
 
 
             </div> */}
-        </div>
+        </motion.div>
     )
 }
 

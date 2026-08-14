@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { assets } from '../assets/asset'
 import { useClerk, UserButton, useUser } from '@clerk/react'
+import { button } from 'motion/react-client'
 
 const Navbar = () => {
     const [showSearch, setShowSearch] = useState(false)
@@ -13,6 +14,9 @@ const Navbar = () => {
     const { user } = useUser()
     const { openSignIn } = useClerk()
 
+    useEffect(() => {
+        document.body.style.overflow = showSearch ? "hidden" : ""
+    }, [showSearch])
 
     const overIn = () => {
         console.log("worked")
@@ -31,91 +35,122 @@ const Navbar = () => {
     const search = () => {
     }
     return (
-        <nav className={`px-4 sm:px-6 md:px-8 lg:px-24 xl:px-48 bg-white sm:flex flex-col gap-6  fixed top-0 left-0 right-0 py-2  ${showSearch && "backdrop-blur-sm z-40 inset-0"}`}>
-            <div className="mx-auto gap-20 text-[13px] hidden md:flex items-center">
+        <nav className={`px-4 sm:px-6 md:px-8 lg:px-24 xl:px-48 bg-white sm:flex flex-col gap-6 fixed top-0 left-0 right-0 py-2  ${showSearch && "backdrop-blur-sm z-40 inset-0"}`}>
 
-                <div className="flex gap-1 items-center">
+            <div className=" w-full text-[13px] hidden md:flex items-center relative justify-between border ">
+
+                <div className="flex gap-1 items-center  ">
                     <span className="text-lg font-bold">SNEAK LOVERS</span>
                     <a href="">
                         <img src={assets.baby_feet} className="cursor-pointer w-3 h-3" />
                     </a>
                 </div>
+                <div className=' flex mx-auto gap-15'>
 
-                {/* Nike */}
-                <div
-                    className="relative"
-                    onMouseEnter={() => setNikeHover(true)}
-                    onMouseLeave={() => setNikeHover(false)}
-                >
-                    <a href="#">Nike</a>
 
-                    {nikeHover && (
-                        <div className="absolute top-full left-0 bg-white p-4 w-[100px] shadow-lg ">
-                            <a href="#" className="block hover:bg-gray-300 ">Air Max</a>
-                            <a href="#" className="block hover:bg-gray-300">Air Force</a>
-                            <a href="#" className="block hover:bg-gray-300">Dunk</a>
+                    {/* Nike */}
+
+                    <a href="#">Home</a>
+
+
+                    <div
+                        className="relative"
+                        onMouseEnter={() => setNikeHover(true)}
+                        onMouseLeave={() => setNikeHover(false)}
+                    >
+                        <div className='flex items-center gap-1'>
+                            <a href="#">Brand</a>
+                            <img src={assets.search} className='w-2 h-2' alt="" />
                         </div>
-                    )}
-                </div>
 
-                <div
-                    className="relative "
-                    onMouseEnter={() => setPumaHover(true)}
-                    onMouseLeave={() => setPumaHover(false)}
-                >
-                    <a href="#">Puma</a>
-                    {
-                        pumaHover && (
-                            <div className="absolute top-full left-0 bg-white w-[150px] space-y-2 p-4 shadow-lg">
-                                <a href="#" className="block hover:bg-gray-300">Puma Suede</a>
-                                <a href="#" className="block hover:bg-gray-300">Puma Clyde</a>
-                                <a href="#" className="block hover:bg-gray-300">Puma Palermo</a>
-                                <a href="#" className="block hover:bg-gray-300">Puma Cali & Carina</a>
-
+                        {nikeHover && (
+                            <div className="absolute top-full left-0 bg-white p-4 w-[100px] shadow-lg space-y-2 ">
+                                <a href="#" className="block hover:bg-gray-300 ">Nike</a>
+                                <a href="#" className="block hover:bg-gray-300">Puma</a>
+                                <a href="#" className="block hover:bg-gray-300">Adidas</a>
                             </div>
-                        )
+                        )}
+                    </div>
+
+                    <div
+                        className="relative "
+                        onMouseEnter={() => setPumaHover(true)}
+                        onMouseLeave={() => setPumaHover(false)}
+                    >
+                        <div className='flex items-center gap-1'>
+                            <a href="#">Shop</a>
+                            <img src={assets.search} className='w-2 h-2' alt="" />
+                        </div>
+                        {
+                            pumaHover && (
+                                <div className="absolute top-full left-0 bg-white w-[150px] space-y-2 p-4 shadow-lg">
+                                    <a href="#" className="block hover:bg-gray-300">ALL</a>
+                                    <a href="#" className="block hover:bg-gray-300">New Arrivals</a>
+                                    <a href="#" className="block hover:bg-gray-300">Sales</a>
+                                    <a href="#" className="block hover:bg-gray-300">Best Sellers</a>
+
+                                </div>
+                            )
+                        }
+                    </div>
+                    <div
+                        className="relative"
+                        onMouseEnter={() => setadidasHover(true)}
+                        onMouseLeave={() => setadidasHover(false)}
+                    >
+                        <div className='flex items-center gap-1'>
+                            <a href="#">Collection</a>
+                            <img src={assets.search} className='w-2 h-2' alt="" />
+                        </div>
+                        {
+                            adidasHover && (
+                                <div className="absolute top-full left-0 bg-white w-[150px] space-y-2 z-100 p-4 shadow-lg">
+                                    <a href="#" className="block hover:bg-gray-300">Air Jordan</a>
+                                    <a href="#" className="block hover:bg-gray-300">Air Max</a>
+
+
+                                </div>
+                            )
+                        }
+                    </div>
+
+                </div>
+                <div className='flex items-center gap-2'>
+
+                    <div className=''>
+                        <img
+                            src={assets.search}
+                            className="cursor-pointer w-3 h-3"
+                            onClick={() => setShowSearch(!showSearch)}
+
+                        />
+                        {showSearch &&
+                            <form className='hidden absolute left-0 top-10  md:flex sm:text-4xl items-center rounded-xl justify-between bg-gray-200 w-xl h-[100px] px-3 mx-auto'>
+                                <input type="text" placeholder='search' className='rounded-xl outline-none border-none w-full px-2' />
+                                <img src={assets.search} alt="" className='w-3 h-3' />
+                            </form>
+                        }
+
+                    </div>
+
+                    {
+                        user
+                            ?
+                            <UserButton />
+                            :
+                            <div className='flex items-center gap-1' onClick={() => openSignIn()}>
+                                <img src={assets.search} alt="" className='w-3 h-3' />
+                                <button >Account</button>
+                            </div>
                     }
                 </div>
-                <div
-                    className="relative"
-                    onMouseEnter={() => setadidasHover(true)}
-                    onMouseLeave={() => setadidasHover(false)}
-                >
-                    <a href="#">Adidas</a>
-                    {
-                        adidasHover && (
-                            <div className="absolute top-full left-0 bg-white w-[150px] space-y-2 z-100 p-4 shadow-lg">
-                                <a href="#" className="block hover:bg-gray-300">Adidas Samba</a>
-                                <a href="#" className="block hover:bg-gray-300">Adidas Gazelle</a>
-                                <a href="#" className="block hover:bg-gray-300">Adidas Superstar</a>
-                                <a href="#" className="block hover:bg-gray-300">Adidas Stan Smith</a>
-                                <a href="#" className="block hover:bg-gray-300">Adidas Campus 00s</a>
 
-                            </div>
-                        )
-                    }
-                </div>
 
-                <img
-                    src={assets.search}
-                    className="cursor-pointer w-3 h-3"
-                    onClick={() => setShowSearch(!showSearch)}
 
-                />
-
-                {
-                    user
-                        ?
-                        <UserButton />
-                        :
-                        <div className='gap-2' onClick={() => openSignIn()}>
-                            <button >Sign in</button>
-
-                        </div>
-                }
 
 
             </div>
+
 
             {/* Mobile view */}
             <div className='md:hidden '>
@@ -126,7 +161,8 @@ const Navbar = () => {
                         <a href=""> <img src={assets.baby_feet} alt="" className='cursor-pointer w-3 h-3' /></a>
 
                     </div>
-                    <div className='flex gap-5'>
+
+                    {user ? <div className='flex gap-5'>
 
                         <img src={assets.search} alt="" className='w-3 h-3 ' onClick={() => setOpenSearch(!openSearch)} />
 
@@ -137,7 +173,10 @@ const Navbar = () => {
 
                         </button>
                     </div>
+                        : <button onClick={() => openSignIn()}>Sign In</button>
+                    }
                 </div>
+
 
 
 

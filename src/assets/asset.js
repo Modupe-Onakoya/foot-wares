@@ -20,12 +20,6 @@ export const assets = {
     right_arrow, adidas_logo, baby_feet, search, nike_logo, nike_logo_1, puma_logo2, adidas_shoe1, adidas_shoe2, adidas_shoe3, nike_shoe1, nike_shoe2, nike_shoe3, puma_shoe1, puma_shoe2, puma_shoe3
 }
 
-export const nikeHomePage = [
-    nike_shoe1, nike_shoe2, nike_shoe3
-]
-export const adidasHomePage = [
-    adidas_shoe1, adidas_shoe2, adidas_shoe3
-]
-export const pumaHomePage = [
-    puma_shoe1, puma_shoe2, puma_shoe3
+export const featuredProducts = [
+    nike_shoe1, nike_shoe3, adidas_shoe3, puma_shoe2
 ]
