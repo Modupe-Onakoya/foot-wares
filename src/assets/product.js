@@ -57,7 +57,6 @@ export const products = [
         originalPrice: 220,
         desc: "The shoe that started it all. Classic high-top silhouette with premium leather upper.",
         image: assets.nike_pegasus_premium_black,
-        tag: "Not Bestseller",       // "New", "Sale", "Limited" etc — optional
         isFeatured: true,
         newArrivals: false,
 
