@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { assets } from '../assets/asset'
 import { useClerk, UserButton, useUser } from '@clerk/react'
 import { button } from 'motion/react-client'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     const [showSearch, setShowSearch] = useState(false)
@@ -37,7 +38,7 @@ const Navbar = () => {
     return (
         <nav className={`px-4 sm:px-6 md:px-8 lg:px-24 xl:px-48 bg-white sm:flex flex-col gap-6 fixed top-0 left-0 right-0 py-2  ${showSearch && "backdrop-blur-sm z-40 inset-0"}`}>
 
-            <div className=" w-full text-[13px] hidden md:flex items-center relative justify-between border ">
+            <div className=" w-full text-[13px] hidden md:flex items-center relative justify-between  ">
 
                 <div className="flex gap-1 items-center  ">
                     <span className="text-lg font-bold">SNEAK LOVERS</span>
@@ -60,14 +61,15 @@ const Navbar = () => {
                     >
                         <div className='flex items-center gap-1'>
                             <a href="#">Brand</a>
-                            <img src={assets.search} className='w-2 h-2' alt="" />
+                            <img src={assets.arrow_down} className='w-2 h-2' alt="" />
                         </div>
 
                         {nikeHover && (
                             <div className="absolute top-full left-0 bg-white p-4 w-[100px] shadow-lg space-y-2 ">
-                                <a href="#" className="block hover:bg-gray-300 ">Nike</a>
-                                <a href="#" className="block hover:bg-gray-300">Puma</a>
-                                <a href="#" className="block hover:bg-gray-300">Adidas</a>
+                                <Link to={"/brand-page/nike"} className="block hover:bg-gray-300 ">Nike</Link>
+                                <Link to={"/brand-page/puma"} className="block hover:bg-gray-300 ">Puma</Link>
+                                <Link to={"/brand-page/adidas"} className="block hover:bg-gray-300 ">Adidas</Link>
+
                             </div>
                         )}
                     </div>
@@ -79,15 +81,14 @@ const Navbar = () => {
                     >
                         <div className='flex items-center gap-1'>
                             <a href="#">Shop</a>
-                            <img src={assets.search} className='w-2 h-2' alt="" />
+                            <img src={assets.arrow_down} className='w-2 h-2' alt="" />
                         </div>
                         {
                             pumaHover && (
                                 <div className="absolute top-full left-0 bg-white w-[150px] space-y-2 p-4 shadow-lg">
-                                    <a href="#" className="block hover:bg-gray-300">ALL</a>
-                                    <a href="#" className="block hover:bg-gray-300">New Arrivals</a>
-                                    <a href="#" className="block hover:bg-gray-300">Sales</a>
-                                    <a href="#" className="block hover:bg-gray-300">Best Sellers</a>
+                                    <Link to={"/all-products"} className="block hover:bg-gray-300">ALL</Link>
+                                    <Link to={"/all-products?newArrivals=true"} className="block hover:bg-gray-300">New Arrivals</Link>
+                                    <Link to={`/all-products?tag=bestseller`} className="block hover:bg-gray-300">Best Sellers</Link>
 
                                 </div>
                             )
@@ -100,7 +101,7 @@ const Navbar = () => {
                     >
                         <div className='flex items-center gap-1'>
                             <a href="#">Collection</a>
-                            <img src={assets.search} className='w-2 h-2' alt="" />
+                            <img src={assets.arrow_down} className='w-2 h-2' alt="" />
                         </div>
                         {
                             adidasHover && (
@@ -115,7 +116,7 @@ const Navbar = () => {
                     </div>
 
                 </div>
-                <div className='flex items-center gap-2'>
+                <div className='flex items-center gap-3'>
 
                     <div className=''>
                         <img
@@ -127,7 +128,7 @@ const Navbar = () => {
                         {showSearch &&
                             <form className='hidden absolute left-0 top-10  md:flex sm:text-4xl items-center rounded-xl justify-between bg-gray-200 w-xl h-[100px] px-3 mx-auto'>
                                 <input type="text" placeholder='search' className='rounded-xl outline-none border-none w-full px-2' />
-                                <img src={assets.search} alt="" className='w-3 h-3' />
+                                <img src={assets.arrow_down} alt="" className='w-3 h-3' />
                             </form>
                         }
 
@@ -139,7 +140,7 @@ const Navbar = () => {
                             <UserButton />
                             :
                             <div className='flex items-center gap-1' onClick={() => openSignIn()}>
-                                <img src={assets.search} alt="" className='w-3 h-3' />
+                                <img src={assets.user} alt="" className='w-3 h-3' />
                                 <button >Account</button>
                             </div>
                     }
@@ -162,7 +163,7 @@ const Navbar = () => {
 
                     </div>
 
-                    {user ? <div className='flex gap-5'>
+                    {/* {user ? <div className='flex gap-5'>
 
                         <img src={assets.search} alt="" className='w-3 h-3 ' onClick={() => setOpenSearch(!openSearch)} />
 
@@ -174,7 +175,18 @@ const Navbar = () => {
                         </button>
                     </div>
                         : <button onClick={() => openSignIn()}>Sign In</button>
-                    }
+                    } */}
+                    <div className='flex gap-5'>
+                        <img src={assets.search} alt="" className='w-3 h-3 ' onClick={() => setOpenSearch(!openSearch)} />
+
+                        <button className='space-y-[6px] flex flex-col' onClick={() => setOpenMenu(!openMenu)} >
+                            <span className={`w-[15px] h-[2px] bg-black transition-all border ${openMenu && 'rotate-45 translate-y-[8px]'}`} />
+                            <span className={`w-[15px] h-[2px] bg-black transition-all border ${openMenu && 'opacity-0'}`} />
+                            <span className={`w-[15px] h-[2px] bg-black transition-all border ${openMenu && '-rotate-45 -translate-y-[8px]'}`} />
+
+                        </button>
+                    </div>
+
                 </div>
 
 
@@ -182,9 +194,17 @@ const Navbar = () => {
 
                 <div className={`${openMenu ? "translate-y-0 delay-200" : "-translate-y-full"} bg-white h-screen flex justify-between fixed top-0 left-0 right-0 z-10  px-4 py-2 transition-transform ease-in-out duration-500   `}>
                     <div className='flex flex-col h-full text-3xl py-20 gap-8 font-bold px-10'>
-                        <a href="">Nike</a>
-                        <a href="">Puma</a>
-                        <a href="">Addidas</a>
+                        <div><a href="">Home</a></div>
+                        <div className='relative'>
+                            <a href="">Brand</a>
+                            <div className='absolute '>
+                                <p>Nike</p>
+                            </div>
+
+                        </div>
+                        <div><a href="">Shop</a></div>
+                        <div> <a href="">Collection</a></div>
+
                     </div>
                     <button className='space-y-[6px] flex flex-col ' onClick={() => setOpenMenu(!openMenu)} >
                         <span className={`w-[15px] bg-black h-[2px] transition-all border ${openMenu && 'rotate-45 translate-y-[8px] '}`} />
