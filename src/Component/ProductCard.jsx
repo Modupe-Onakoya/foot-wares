@@ -1,6 +1,8 @@
-const ProductCard = ({ product }) => {
+import { Link } from "react-router-dom";
+
+const ProductCard = ({ product, add }) => {
     return (
-        <div className="group">
+        <Link to={`/product/${product.id}`} className="group">
             {/* Image */}
             <div className="relative overflow-hidden rounded-xl bg-gray-100">
                 <img
@@ -40,7 +42,7 @@ const ProductCard = ({ product }) => {
 
                 {/* Buttons */}
                 <div className="mt-4 flex gap-2">
-                    <button className="flex-1 rounded-lg bg-gray-300 py-2 text-sm font-medium transition hover:bg-black hover:text-white">
+                    <button onClick={() => add(product.id)} className="flex-1 rounded-lg bg-gray-300 py-2 text-sm font-medium transition hover:bg-black hover:text-white">
                         Add to Cart
                     </button>
 
@@ -49,7 +51,7 @@ const ProductCard = ({ product }) => {
                     </button>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 };
 

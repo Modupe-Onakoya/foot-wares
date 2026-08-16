@@ -1,10 +1,13 @@
 import { products } from "../assets/product";
-import { useSearchParams } from "react-router-dom";
-import ProductCard from "../Component/ProductsCard";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import ProductCard from "../Component/ProductCard";
+import { useContext } from "react";
+import { context } from "../context/AppContext";
 
 const AllProducts = () => {
     const [searchParams] = useSearchParams();
-
+    const navigate = useNavigate()
+    const { setCart } = useContext(context)
     const newArrivals = searchParams.get("newArrivals");
     const bestSeller = searchParams.get("tag");
 
@@ -26,6 +29,14 @@ const AllProducts = () => {
         title = "Best Sellers";
     }
 
+    function add(id) {
+
+        const cartDetails = productsToShow.find((p) => p.id === id)
+        setCart(prev => [...prev, cartDetails])
+        navigate("/cart")
+
+    }
+
     return (
         <section className="px-4 py-10 sm:px-6 md:px-8 lg:px-20 lg:py-16">
             <div className="mb-10">
@@ -43,6 +54,7 @@ const AllProducts = () => {
                     <ProductCard
                         key={product.id}
                         product={product}
+                        add={add}
                     />
                 ))}
             </div>
