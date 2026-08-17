@@ -7,11 +7,17 @@ import { context } from '../context/AppContext'
 
 const Navbar = () => {
     const [showSearch, setShowSearch] = useState(false)
+    const [menuOpen, setMenuOpen] = useState({
+        nikeHover: false,
+        pumaHover: false,
+        adidasHover: false
+    })
     const [openMenu, setOpenMenu] = useState(false)
     const [openSearch, setOpenSearch] = useState(false)
-    const [nikeHover, setNikeHover] = useState(false)
-    const [pumaHover, setPumaHover] = useState(false)
-    const [adidasHover, setadidasHover] = useState(false)
+    // const [nikeHover, setNikeHover] = useState(false)
+    // const [pumaHover, setPumaHover] = useState(false)
+    const [homeHover, setHomeHover] = useState(false)
+    // const [adidasHover, setadidasHover] = useState(false)
     const [isLoggedIn, setIsLoggedIm] = useState(false)
     const { user } = useUser()
     const navigate = useNavigate()
@@ -57,20 +63,42 @@ const Navbar = () => {
 
                     {/* Nike */}
 
-                    <a href="#">Home</a>
+                    <div
+                        className="relative"
+                        onMouseEnter={() => setHomeHover(true)}
+                        onMouseLeave={() => setHomeHover(false)}
+                    >
+                        <div className='flex items-center gap-1'>
+                            <a href="#">Home</a>
+                            <img src={assets.arrow_down} className='w-2 h-2' alt="" />
+                        </div>
+
+                        {homeHover && (
+                            <div className="absolute top-full left-0 bg-white p-4 w-[200px] shadow-lg space-y-2 ">
+                                <a href='#' className="block hover:bg-gray-300 ">Home</a>
+
+                                <a href='#products' className="block hover:bg-gray-300 ">Featured Products</a>
+                                <a href='#brands' className="block hover:bg-gray-300 ">Brands</a>
+                                <a href='#testimonials' className="block hover:bg-gray-300 ">Testimonials</a>
+
+
+                            </div>
+                        )}
+                    </div>
 
 
                     <div
                         className="relative"
-                        onMouseEnter={() => setNikeHover(true)}
-                        onMouseLeave={() => setNikeHover(false)}
+                        onMouseEnter={() => setOpenMenu({ ...openMenu, nikeHover: true })}
+                        onMouseLeave={() => setOpenMenu({ ...openMenu, nikeHover: false })}
+
                     >
                         <div className='flex items-center gap-1'>
-                            <a href="#">Brand</a>
+                            <p >Brand</p>
                             <img src={assets.arrow_down} className='w-2 h-2' alt="" />
                         </div>
 
-                        {nikeHover && (
+                        {openMenu.nikeHover && (
                             <div className="absolute top-full left-0 bg-white p-4 w-[100px] shadow-lg space-y-2 ">
                                 <Link to={"/brand-page/nike"} className="block hover:bg-gray-300 ">Nike</Link>
                                 <Link to={"/brand-page/puma"} className="block hover:bg-gray-300 ">Puma</Link>
@@ -82,15 +110,15 @@ const Navbar = () => {
 
                     <div
                         className="relative "
-                        onMouseEnter={() => setPumaHover(true)}
-                        onMouseLeave={() => setPumaHover(false)}
+                        onMouseEnter={() => setOpenMenu({ ...openMenu, pumaHover: true })}
+                        onMouseLeave={() => setOpenMenu({ ...openMenu, pumaHover: false })}
                     >
                         <div className='flex items-center gap-1'>
-                            <a href="#">Shop</a>
+                            <p>Shop</p>
                             <img src={assets.arrow_down} className='w-2 h-2' alt="" />
                         </div>
                         {
-                            pumaHover && (
+                            openMenu.pumaHover && (
                                 <div className="absolute top-full left-0 bg-white w-[150px] space-y-2 p-4 shadow-lg">
                                     <Link to={"/all-products"} className="block hover:bg-gray-300">ALL</Link>
                                     <Link to={"/all-products?newArrivals=true"} className="block hover:bg-gray-300">New Arrivals</Link>
@@ -102,15 +130,15 @@ const Navbar = () => {
                     </div>
                     <div
                         className="relative"
-                        onMouseEnter={() => setadidasHover(true)}
-                        onMouseLeave={() => setadidasHover(false)}
+                        onMouseEnter={() => setOpenMenu({ ...openMenu, adidasHover: true })}
+                        onMouseLeave={() => setOpenMenu({ ...openMenu, adidasHover: false })}
                     >
                         <div className='flex items-center gap-1'>
-                            <a href="#">Collection</a>
+                            <p>Collection</p>
                             <img src={assets.arrow_down} className='w-2 h-2' alt="" />
                         </div>
                         {
-                            adidasHover && (
+                            openMenu.adidasHover && (
                                 <div className="absolute top-full left-0 bg-white w-[150px] space-y-2 z-100 p-4 shadow-lg">
                                     <Link to={"/all-products?collection=airJordan"} className="block hover:bg-gray-300">Air Jordan</ Link>
                                     <Link to={"/all-products?collection=airmax"} className="block hover:bg-gray-300">Air Max</Link>

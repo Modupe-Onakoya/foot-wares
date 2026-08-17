@@ -21,7 +21,9 @@ const testimonials = [
 
 const Testimonials = () => {
     return (
-        <section className="px-4 sm:px-6 md:px-8 lg:px-20 mt-20 lg:mt-30 -z-100">
+        <section className="px-4 sm:px-6 md:px-8 lg:px-20 mt-20 lg:mt-30 -z-100"
+            id="testimonials"
+        >
             <h2 className="text-center text-xl font-bold">What Our Customers Say</h2>
 
             <div className="mx-auto mt-10 grid max-w-6xl gap-6 md:grid-cols-3">

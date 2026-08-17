@@ -1,8 +1,9 @@
 import { useContext } from "react";
 import { context } from "../context/AppContext";
+import { assets } from "../assets/asset";
 
 const Cart = () => {
-    const { cart } = useContext(context);
+    const { cart, setCart } = useContext(context);
 
     const total = cart.reduce(
         (sum, product) => sum + product.price,
@@ -19,6 +20,9 @@ const Cart = () => {
             </section>
         );
     }
+    const removeCart = (id) => {
+        setCart((prev) => prev.filter((cart) => cart.id !== id))
+    }
 
     return (
         <section className="px-4 py-12 sm:px-6 md:px-8 lg:px-20">
@@ -34,10 +38,13 @@ const Cart = () => {
                 {/* Cart products */}
                 <div className="space-y-5">
                     {cart.map((product, index) => (
+
                         <div
                             key={`${product.id}-${index}`}
-                            className="flex gap-4 rounded-xl border p-4"
+                            className="flex gap-4 relative rounded-xl border p-4"
                         >
+                            <img src={assets.search} className="w-3 h-3 absolute top-5 right-5" alt="" onClick={() => removeCart(product.id)} />
+
                             <img
                                 src={product.image}
                                 alt={product.name}
@@ -61,6 +68,7 @@ const Cart = () => {
                             </div>
                         </div>
                     ))}
+
                 </div>
 
                 {/* Summary */}

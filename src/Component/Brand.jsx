@@ -31,7 +31,7 @@ const brands = [
 
 const Brand = () => {
     return (
-        <section className="px-4 sm:px-6 md:px-8 lg:px-20 mt-20 lg:mt-30">
+        <section className="px-4 sm:px-6 md:px-8 lg:px-20 mt-20 lg:mt-30" id='brands'>
             <h2 className="mb-6 text-2xl font-bold text-center py-5">Shop by Brand</h2>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3 group">

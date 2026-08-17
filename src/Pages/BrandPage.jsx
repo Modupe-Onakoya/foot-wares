@@ -11,13 +11,11 @@ const BrandPage = () => {
 
     const brandProducts = products.filter((product) => product.brand.toLowerCase() === brand.toLowerCase())
     return (
-        <div className='px-4 sm:px-6 md:px-8 lg:px-20 mt-20 lg:mt-30 -z-100'>
-            <div className='className="mt-8 grid grid-cols-4 gap-5 md:grid-cols-4"'>
-                {
-                    brandProducts.map((product) => (
-                        <BrandProductCard product={product} add={add} brandProduct={brandProducts} />
-                    ))
-                }
+        <div className='px-4 sm:px-6 md:px-8 lg:px-20 mt-20 lg:mt-30'>
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5'>
+                {brandProducts.map((product) => (
+                    <BrandProductCard key={product.id} product={product} add={add} brandProducts={brandProducts} />
+                ))}
             </div>
         </div>
     )

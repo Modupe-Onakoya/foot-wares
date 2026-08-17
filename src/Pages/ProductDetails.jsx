@@ -1,8 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { products } from "../assets/product";
+import { useContext } from "react";
+import { context } from "../context/AppContext";
 
 const ProductDetails = () => {
     const { id } = useParams();
+    const { setCart } = useContext(context)
+    const navigate = useNavigate()
 
     const product = products.find(
         (product) => product.id === Number(id)
@@ -12,6 +16,10 @@ const ProductDetails = () => {
         return <h1>Product not found</h1>;
     }
 
+    const add = () => {
+        setCart((prev) => [...prev, product])
+        navigate("/cart")
+    }
     return (
         <section className="px-4 py-20 lg:px-20">
             <div className="grid gap-10 md:grid-cols-2">
@@ -59,7 +67,7 @@ const ProductDetails = () => {
 
                     {/* Buttons */}
                     <div className="mt-8 flex gap-3">
-                        <button className="flex-1 rounded-lg border border-black py-3 font-medium">
+                        <button onClick={() => add()} className="flex-1 rounded-lg border border-black py-3 font-medium">
                             Add to Cart
                         </button>
 

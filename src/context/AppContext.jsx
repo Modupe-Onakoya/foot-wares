@@ -15,7 +15,6 @@ const AppContext = ({ children }) => {
 
         const cartDetails = va.find((p) => p.id === id)
         setCart(prev => [...prev, cartDetails])
-        navigate("/cart")
 
     }
     return (

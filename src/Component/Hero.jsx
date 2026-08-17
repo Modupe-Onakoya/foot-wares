@@ -27,7 +27,7 @@ const slides = [
         slogan: "Impossible Is Nothing",
         logo: assets.adidas_logo,
         image: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&q=80",
-        bg: "bg-white",
+        bg: "bg-gray-200",
         text: "text-black",
     },
 ]
