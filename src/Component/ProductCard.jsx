@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const ProductCard = ({ product, add }) => {
+const ProductCard = ({ product, add, allProduct }) => {
     return (
         <Link to={`/product/${product.id}`} className="group">
             {/* Image */}
@@ -42,7 +42,13 @@ const ProductCard = ({ product, add }) => {
 
                 {/* Buttons */}
                 <div className="mt-4 flex gap-2">
-                    <button onClick={() => add(product.id)} className="flex-1 rounded-lg bg-gray-300 py-2 text-sm font-medium transition hover:bg-black hover:text-white">
+                    <button
+                        onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            add(allProduct, product.id);
+                        }}
+                        className="flex-1 rounded-lg bg-gray-300 py-2 text-sm font-medium transition hover:bg-black hover:text-white">
                         Add to Cart
                     </button>
 
@@ -51,7 +57,7 @@ const ProductCard = ({ product, add }) => {
                     </button>
                 </div>
             </div>
-        </Link>
+        </Link >
     );
 };
 

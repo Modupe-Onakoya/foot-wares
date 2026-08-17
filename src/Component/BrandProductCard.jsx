@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const BrandProductCard = ({ product }) => {
+const BrandProductCard = ({ product, add, brandProduct }) => {
     return (
         <div className="group">
             <div className="overflow-hidden rounded-xl bg-gray-100">
@@ -27,7 +27,7 @@ const BrandProductCard = ({ product }) => {
                     <span className="text-yellow-500">★</span>
                 </div>
 
-                <button className="mt-3 w-full rounded-lg bg-black py-2 text-sm text-white transition hover:bg-gray-800">
+                <button onClick={() => add(brandProduct, product.id)} className="mt-3 w-full rounded-lg bg-black py-2 text-sm text-white transition hover:bg-gray-800">
                     Add to Cart
                 </button>
             </div>

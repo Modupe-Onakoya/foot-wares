@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { assets } from '../assets/asset'
 import { useClerk, UserButton, useUser } from '@clerk/react'
-import { button } from 'motion/react-client'
-import { Link } from 'react-router-dom'
+import { button, div } from 'motion/react-client'
+import { Link, useNavigate } from 'react-router-dom'
+import { context } from '../context/AppContext'
 
 const Navbar = () => {
     const [showSearch, setShowSearch] = useState(false)
@@ -13,7 +14,9 @@ const Navbar = () => {
     const [adidasHover, setadidasHover] = useState(false)
     const [isLoggedIn, setIsLoggedIm] = useState(false)
     const { user } = useUser()
+    const navigate = useNavigate()
     const { openSignIn } = useClerk()
+    const { searchShoe, setSearchShoe, cart } = useContext(context)
 
     useEffect(() => {
         document.body.style.overflow = showSearch ? "hidden" : ""
@@ -34,18 +37,21 @@ const Navbar = () => {
 
 
     const search = () => {
+        navigate(`/all-products?shoeSearch=${searchShoe}`)
+        setShowSearch(!showSearch)
+        searchShoe("")
     }
     return (
-        <nav className={`px-4 sm:px-6 md:px-8 lg:px-24 xl:px-48 bg-white sm:flex flex-col gap-6 fixed top-0 left-0 right-0 py-2  ${showSearch && "backdrop-blur-sm z-40 inset-0"}`}>
+        <nav className={`px-4 sm:px-6 md:px-8 lg:px-24 xl:px-48 bg-white sm:flex flex-col gap-6 fixed top-0 left-0 right-0 py-2 z-40 ${showSearch && "backdrop-blur-sm  inset-0"}`}>
 
             <div className=" w-full text-[13px] hidden md:flex items-center relative justify-between  ">
 
-                <div className="flex gap-1 items-center  ">
+                <Link to={"/"} className="flex gap-1 items-center  ">
                     <span className="text-lg font-bold">SNEAK LOVERS</span>
-                    <a href="">
-                        <img src={assets.baby_feet} className="cursor-pointer w-3 h-3" />
-                    </a>
-                </div>
+
+                    <img src={assets.baby_feet} className="cursor-pointer w-3 h-3" />
+
+                </Link>
                 <div className=' flex mx-auto gap-15'>
 
 
@@ -106,8 +112,8 @@ const Navbar = () => {
                         {
                             adidasHover && (
                                 <div className="absolute top-full left-0 bg-white w-[150px] space-y-2 z-100 p-4 shadow-lg">
-                                    <a href="#" className="block hover:bg-gray-300">Air Jordan</a>
-                                    <a href="#" className="block hover:bg-gray-300">Air Max</a>
+                                    <Link to={"/all-products?collection=airJordan"} className="block hover:bg-gray-300">Air Jordan</ Link>
+                                    <Link to={"/all-products?collection=airmax"} className="block hover:bg-gray-300">Air Max</Link>
 
 
                                 </div>
@@ -127,8 +133,8 @@ const Navbar = () => {
                         />
                         {showSearch &&
                             <form className='hidden absolute left-0 top-10  md:flex sm:text-4xl items-center rounded-xl justify-between bg-gray-200 w-xl h-[100px] px-3 mx-auto'>
-                                <input type="text" placeholder='search' className='rounded-xl outline-none border-none w-full px-2' />
-                                <img src={assets.arrow_down} alt="" className='w-3 h-3' />
+                                <input type="text" placeholder='search' className='rounded-xl outline-none border-none w-full px-2' value={searchShoe} onChange={(e) => setSearchShoe(e.target.value)} />
+                                <button onClick={() => search()} className='cursor-pointer'> <img src={assets.search} alt="" className='w-3 h-3' /></button>
                             </form>
                         }
 
@@ -137,7 +143,14 @@ const Navbar = () => {
                     {
                         user
                             ?
-                            <UserButton />
+                            <div className='flex items-center gap-2 relative'>
+                                <UserButton />
+                                <div className='flex cursor-pointer' onClick={() => navigate("/cart")}>
+                                    <img src={assets.cart} alt="" className='cursor-pointer w-3 h-3' />
+                                    <p className='absolute text-[11px] top-0 -right-2 font-bold'>{cart.length}</p>
+                                </div>
+
+                            </div>
                             :
                             <div className='flex items-center gap-1' onClick={() => openSignIn()}>
                                 <img src={assets.user} alt="" className='w-3 h-3' />

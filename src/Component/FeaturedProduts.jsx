@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { motion } from "motion/react"
 import { products } from '../assets/product'
+import { Link, useNavigate } from 'react-router-dom'
+import { context } from '../context/AppContext'
 
 const FeaturedProduts = () => {
-
+    const { cart, add } = useContext(context)
+    const navigate = useNavigate()
     const featured = products.filter(product => product.isFeatured === true)
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -16,7 +20,7 @@ const FeaturedProduts = () => {
             </h1>
             <div className="grid grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {featured.map((product) => (
-                    <div
+                    <Link to={`/product/${product.id}`}
                         key={product.id}
                         className="rounded-xl overflow-hidden bg-white"
                     >
@@ -33,14 +37,14 @@ const FeaturedProduts = () => {
 
                             <p className="font-bold mt-2">${product.price}</p>
 
-                            <button className="w-full mt-4 bg-black text-white py-2 rounded-lg">
+                            <button onClick={() => add(featured, product.id)} className="w-full mt-4 bg-black text-white py-2 rounded-lg">
                                 Add to Cart
                             </button>
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
-            <p className='text-center border rounded-lg shadow-sm border-gray-200 cursor-pointer mt-6 px-2 py-1 w-fit mx-auto'>View All</p>
+            <p onClick={() => navigate("/all-products")} className='text-center border rounded-lg shadow-sm border-gray-200 cursor-pointer mt-6 px-2 py-1 w-fit mx-auto'>View All</p>
         </motion.div>
     )
 }

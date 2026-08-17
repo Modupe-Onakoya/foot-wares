@@ -7,12 +7,24 @@ import { context } from "../context/AppContext";
 const AllProducts = () => {
     const [searchParams] = useSearchParams();
     const navigate = useNavigate()
-    const { setCart } = useContext(context)
+    const { setCart, add } = useContext(context)
     const newArrivals = searchParams.get("newArrivals");
     const bestSeller = searchParams.get("tag");
+    const shoeSearch = searchParams.get("shoeSearch");
+    const collection = searchParams.get("collection");
+
+
+
 
     let productsToShow = products;
     let title = "All Products";
+
+    if (collection) {
+        productsToShow = products.filter(
+            (product) => collection.toLowerCase().includes(product.collection.toLowerCase())
+        );
+        title = "New Arrivals";
+    }
 
     if (newArrivals === "true") {
         productsToShow = products.filter(
@@ -28,14 +40,12 @@ const AllProducts = () => {
         );
         title = "Best Sellers";
     }
-
-    function add(id) {
-
-        const cartDetails = productsToShow.find((p) => p.id === id)
-        setCart(prev => [...prev, cartDetails])
-        navigate("/cart")
-
+    if (shoeSearch) {
+        productsToShow = products.filter(product => product.name.toLowerCase().includes(shoeSearch.toLowerCase()))
     }
+
+
+
 
     return (
         <section className="px-4 py-10 sm:px-6 md:px-8 lg:px-20 lg:py-16">
@@ -55,6 +65,7 @@ const AllProducts = () => {
                         key={product.id}
                         product={product}
                         add={add}
+                        allProduct={productsToShow}
                     />
                 ))}
             </div>

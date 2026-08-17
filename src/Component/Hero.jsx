@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { assets } from '../assets/asset'
+import { Link, useNavigate } from 'react-router-dom'
 
 const slides = [
     {
@@ -33,6 +34,7 @@ const slides = [
 
 const Hero = () => {
     const [current, setCurrent] = useState(0)
+    const navigate = useNavigate()
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -42,7 +44,7 @@ const Hero = () => {
     }, [])
 
     return (
-        <div className='relative overflow-hidden w-full mt-30 h-[500px] md:h-[600px] -z-100'>
+        <div className='relative overflow-hidden w-full mt-30 h-[500px] md:h-[600px] '>
 
             {/* sliding container */}
             <div
@@ -67,9 +69,9 @@ const Hero = () => {
                             <p className='text-lg md:text-2xl font-light tracking-widest uppercase'>
                                 {slide.slogan}
                             </p>
-                            <button className={`mt-4 w-fit px-6 py-3 border-2 font-semibold uppercase tracking-wider text-sm transition-all duration-200 hover:scale-105 ${slide.text} border-current`}>
+                            <Link to={`/brand-page/${slide.brand.toLowerCase()}`} className={`mt-4 w-fit px-6 py-3 border-2 font-semibold uppercase tracking-wider text-sm transition-all duration-200 hover:scale-105 ${slide.text} border-current`}>
                                 Shop Now
-                            </button>
+                            </Link>
                         </div>
 
                         {/* right — shoe image */}

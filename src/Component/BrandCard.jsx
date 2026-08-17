@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 
+
 const BrandCard = ({ brand }) => {
     return (
-        <div className="relative h-[400px] overflow-hidden rounded-xl -z-100 transition-transform duration-500 hover:scale-105">
+        <div className="relative h-[400px] overflow-hidden rounded-xl  transition-transform duration-500 hover:scale-105">
             <img
                 src={brand.image}
                 alt={brand.name}
