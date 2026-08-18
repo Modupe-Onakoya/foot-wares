@@ -41,7 +41,7 @@ const ProductCard = ({ product, add, allProduct }) => {
                 </div>
 
                 {/* Buttons */}
-                <div className="mt-4 flex gap-2">
+                <div className="mt-4 flex max-sm:flex-col gap-2">
                     <button
                         onClick={(e) => {
                             e.preventDefault();

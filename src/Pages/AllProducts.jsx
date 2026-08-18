@@ -19,7 +19,7 @@ const AllProducts = () => {
     let productsToShow = products;
     let title = "All Products";
 
-    // URL filters
+
     if (collection) {
         productsToShow = products.filter(
             (product) =>
@@ -85,7 +85,7 @@ const AllProducts = () => {
     return (
         <section className="px-4 py-10 sm:px-6 md:px-8 lg:px-20 lg:py-16">
 
-            {/* Header */}
+
             <div className="mb-8">
                 <p className="text-sm text-gray-500">
                     Sneak Lovers
@@ -100,14 +100,14 @@ const AllProducts = () => {
                 </p>
             </div>
 
-            {/* Filters */}
+
             <div className="mb-8 flex flex-wrap items-center gap-4">
 
-                {/* Brand */}
+
                 <select
                     value={brand}
                     onChange={(e) => setBrand(e.target.value)}
-                    className="rounded-lg border px-4 py-2 outline-none"
+                    className="rounded-lg border border-gray-300 px-4 py-2 outline-none"
                 >
                     <option value="All">All Brands</option>
                     <option value="Nike">Nike</option>
@@ -115,11 +115,10 @@ const AllProducts = () => {
                     <option value="Adidas">Adidas</option>
                 </select>
 
-                {/* Sort */}
                 <select
                     value={sort}
                     onChange={(e) => setSort(e.target.value)}
-                    className="rounded-lg border px-4 py-2 outline-none"
+                    className="rounded-lg border border-gray-300 px-4 py-2 outline-none"
                 >
                     <option value="default">Sort By</option>
                     <option value="low">

@@ -86,7 +86,7 @@ const FeaturedProduts = () => {
                 ))}
             </div>
             <p onClick={() => navigate("/all-products")} className='text-center border rounded-lg shadow-sm border-gray-200 cursor-pointer mt-6 px-2 py-1 w-fit mx-auto'>View All</p>
-        </motion.div>
+        </motion.div >
     )
 }
 

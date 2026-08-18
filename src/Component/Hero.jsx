@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { assets } from '../assets/asset'
 import { Link, useNavigate } from 'react-router-dom'
+import { useUser } from '@clerk/react'
 
 const slides = [
     {
@@ -35,6 +36,7 @@ const slides = [
 const Hero = () => {
     const [current, setCurrent] = useState(0)
     const navigate = useNavigate()
+    const { user } = useUser()
 
     useEffect(() => {
         const interval = setInterval(() => {

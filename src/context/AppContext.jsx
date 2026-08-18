@@ -1,4 +1,5 @@
 
+import { useUser } from '@clerk/react'
 import React, { createContext } from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -9,12 +10,16 @@ const AppContext = ({ children }) => {
     const [cart, setCart] = useState([])
     const [searchShoe, setSearchShoe] = useState("")
     const navigate = useNavigate()
+    const { user } = useUser()
+
 
 
     function add(va, id) {
-
-        const cartDetails = va.find((p) => p.id === id)
-        setCart(prev => [...prev, cartDetails])
+        if (user) {
+            const cartDetails = va.find((p) => p.id === id)
+            setCart(prev => [...prev, cartDetails])
+        }
+        else (alert("kindly login to add cart"))
 
     }
     return (

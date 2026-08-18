@@ -58,12 +58,12 @@ const BrandProductCard = ({ product, add, brandProducts }) => {
             </div>
 
             {/* buttons */}
-            <div className="mt-3 flex gap-2">
+            <div className="mt-3 flex max-sm:flex-col gap-2">
                 <button
                     onClick={() => add(brandProducts, product.id)}
 
                     className={`flex-1 py-2 rounded-xl text-sm font-medium transition-all duration-200 border 
-                        border-black text-black hover:bg-black hover:text-white"
+                        border-gray-300 text-black hover:bg-gray-300 hover:text-white"
                       
                         }`}
                 >
