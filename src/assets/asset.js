@@ -21,10 +21,29 @@ import nike_pegasus_premium_black from "./nike-pegasus-premium-black.png"
 import user from "./user.png"
 import arrow_down from "./arrow-down.png"
 import cart from "./shopping-cart.png"
+import n1 from './n1.png'
+import n2 from './n2.png'
+import a1 from './a1.jpg'
+import a2 from './a2.jpg'
+import a3 from './a3.jpg'
+import a4 from './a4.jpg'
+import a5 from './a5.jpg'
+import p1 from './p1.jpg'
+import p2 from './p2.jpg'
+import p3 from './p3.jpg'
+import p4 from './p4.jpg'
+import p5 from './p5.jpg'
+import cancel from "./cancel.png"
+
+
+
+
+
+
 
 
 
 export const assets = {
-    cart, arrow_down, user, nike_air_dt_max_white, nike_air_dt_max_black, nike_pegasus_premium_black, nike_pegasus_premium_white, right_arrow, adidas_logo, baby_feet, search, nike_logo, nike_logo_1, puma_logo2, adidas_shoe1, adidas_shoe2, adidas_shoe3, nike_shoe1, nike_shoe2, nike_shoe3, puma_shoe1, puma_shoe2, puma_shoe3
+    cancel, n1, n2, p1, p2, p3, p4, p5, a1, a2, a3, a4, a5, cart, arrow_down, user, nike_air_dt_max_white, nike_air_dt_max_black, nike_pegasus_premium_black, nike_pegasus_premium_white, right_arrow, adidas_logo, baby_feet, search, nike_logo, nike_logo_1, puma_logo2, adidas_shoe1, adidas_shoe2, adidas_shoe3, nike_shoe1, nike_shoe2, nike_shoe3, puma_shoe1, puma_shoe2, puma_shoe3
 }
 

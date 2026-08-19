@@ -28,11 +28,11 @@ const BrandPage = () => {
     }
 
     // In-stock filter
-    if (inStock) {
-        brandProducts = brandProducts.filter(
-            (product) => product.inStock
-        );
-    }
+    // if (inStock) {
+    //     brandProducts = brandProducts.filter(
+    //         (product) => product.inStock
+    //     );
+    // }
 
     // Sorting
     if (sort === "low") {
@@ -110,7 +110,7 @@ const BrandPage = () => {
                 </select>
 
                 {/* Stock */}
-                <label className="flex items-center gap-2">
+                {/* <label className="flex items-center gap-2">
                     <input
                         type="checkbox"
                         checked={inStock}
@@ -120,7 +120,7 @@ const BrandPage = () => {
                     />
 
                     In Stock
-                </label>
+                </label> */}
 
                 <span className="ml-auto text-sm text-gray-400">
                     {brandProducts.length} products

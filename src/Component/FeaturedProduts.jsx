@@ -29,13 +29,13 @@ const FeaturedProduts = () => {
                         className="rounded-xl overflow-hidden relative bg-white"
 
                     >
-                        <div className='bg-gray-300'>
+                        <div className='relative'>
                             <img
                                 src={product.image}
                                 alt={product.name}
                                 className="w-full aspect-square object-cover transition-transform duration-500 hover:scale-105"
                             />
-
+                            <div className='w-full h-full absolute inset-0 bg-gray-300/30'></div>
                         </div>
 
                         <div className="p-4">

@@ -65,7 +65,7 @@ const Hero = () => {
                                 alt={slide.brand}
                                 className='w-20 h-20 object-contain'
                             />
-                            <h1 className='text-5xl md:text-7xl font-black uppercase tracking-tight'>
+                            <h1 className='text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-tight'>
                                 {slide.brand}
                             </h1>
                             <p className='text-lg md:text-2xl font-light tracking-widest uppercase'>

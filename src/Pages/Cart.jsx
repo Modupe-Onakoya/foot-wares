@@ -43,7 +43,7 @@ const Cart = () => {
                             key={`${product.id}-${index}`}
                             className="flex gap-4 relative rounded-xl border p-4"
                         >
-                            <img src={assets.search} className="w-3 h-3 absolute top-5 right-5" alt="" onClick={() => removeCart(product.id)} />
+                            <img src={assets.cancel} className="w-3 h-3 absolute top-5 right-5" alt="" onClick={() => removeCart(product.id)} />
 
                             <img
                                 src={product.image}

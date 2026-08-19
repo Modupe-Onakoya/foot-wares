@@ -67,13 +67,13 @@ const Navbar = () => {
                         onMouseLeave={() => setHomeHover(false)}
                     >
                         <div className='flex items-center gap-1'>
-                            <a href="#">Home</a>
+                            <Link to={"/"} className="">Home Page</Link>
                             <img src={assets.arrow_down} className='w-2 h-2' alt="" />
                         </div>
 
                         {homeHover && (
                             <div className="absolute top-full left-0 bg-white p-4 w-[200px] shadow-lg space-y-2 ">
-                                <Link to={"/"} className="block hover:bg-gray-300 ">Home</Link>
+                                <Link to={"/"} className="block hover:bg-gray-300 ">Home </Link>
 
                                 <a href='#products' className="block hover:bg-gray-300 ">Featured Products</a>
                                 <a href='#brands' className="block hover:bg-gray-300 ">Brands</a>
@@ -178,7 +178,7 @@ const Navbar = () => {
 
                             </div>
                             :
-                            <div className='flex items-center gap-1' onClick={() => openSignIn()}>
+                            <div className='flex items-center gap-1 cursor-pointer' onClick={() => openSignIn()}>
                                 <img src={assets.user} alt="" className='w-3 h-3' />
                                 <button >Account</button>
                             </div>
@@ -251,7 +251,8 @@ const Navbar = () => {
                                 onClick={() => setMobileSection(mobileSection === "home" ? "" : "home")}
                                 className='flex items-center justify-between w-full py-4 font-semibold text-lg'
                             >
-                                <span>Home</span>
+                                <Link to={"/"} className="">Home Page</Link>
+
                                 <img src={assets.arrow_down} className={`w-3 h-3 transition-transform duration-300 ${mobileSection === "home" ? "rotate-180" : ""}`} alt="" />
                             </button>
                             <div className={`overflow-hidden transition-all duration-300 ${mobileSection === "home" ? "max-h-48 pb-3" : "max-h-0"}`}>
