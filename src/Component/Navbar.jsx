@@ -50,7 +50,7 @@ const Navbar = () => {
 
             <div className=" w-full text-[13px] hidden md:flex items-center relative justify-between  ">
 
-                <Link to={"/"} className="flex gap-1 items-center  ">
+                <Link to={"/"} className="flex gap-2 items-center  ">
                     <span className="text-lg font-bold">SNEAK LOVERS</span>
 
                     <img src={assets.baby_feet} className="cursor-pointer w-3 h-3" />
@@ -66,9 +66,8 @@ const Navbar = () => {
                         onMouseEnter={() => setHomeHover(true)}
                         onMouseLeave={() => setHomeHover(false)}
                     >
-                        <div className='flex items-center gap-1'>
+                        <div className='flex items-center gap-1 hover:border-b-2 cursor-pointer'>
                             <Link to={"/"} className="">Home Page</Link>
-                            <img src={assets.arrow_down} className='w-2 h-2' alt="" />
                         </div>
 
                         {homeHover && (
@@ -91,9 +90,8 @@ const Navbar = () => {
                         onMouseLeave={() => setOpenMenu({ ...openMenu, nikeHover: false })}
 
                     >
-                        <div className='flex items-center gap-1'>
+                        <div className='flex items-center gap-1 hover:border-b-2 cursor-pointer'>
                             <p >Brand</p>
-                            <img src={assets.arrow_down} className='w-2 h-2' alt="" />
                         </div>
 
                         {openMenu.nikeHover && (
@@ -111,9 +109,8 @@ const Navbar = () => {
                         onMouseEnter={() => setOpenMenu({ ...openMenu, pumaHover: true })}
                         onMouseLeave={() => setOpenMenu({ ...openMenu, pumaHover: false })}
                     >
-                        <div className='flex items-center gap-1'>
+                        <div className='flex items-center gap-1 hover:border-b-2 cursor-pointer'>
                             <p>Shop</p>
-                            <img src={assets.arrow_down} className='w-2 h-2' alt="" />
                         </div>
                         {
                             openMenu.pumaHover && (
@@ -131,9 +128,8 @@ const Navbar = () => {
                         onMouseEnter={() => setOpenMenu({ ...openMenu, adidasHover: true })}
                         onMouseLeave={() => setOpenMenu({ ...openMenu, adidasHover: false })}
                     >
-                        <div className='flex items-center gap-1'>
+                        <div className='flex items-center gap-1 hover:border-b-2 cursor-pointer '>
                             <p>Collection</p>
-                            <img src={assets.arrow_down} className='w-2 h-2' alt="" />
                         </div>
                         {
                             openMenu.adidasHover && (
@@ -172,7 +168,7 @@ const Navbar = () => {
                             <div className='flex items-center gap-2 relative'>
                                 <UserButton />
                                 <div className='flex cursor-pointer' onClick={() => navigate("/cart")}>
-                                    <img src={assets.cart} alt="" className='cursor-pointer w-3 h-3' />
+                                    <img src={assets.cart} alt="" className='cursor-pointer w-4 h-4' />
                                     <p className='absolute text-[11px] top-0 -right-2 font-bold'>{cart.length}</p>
                                 </div>
 
